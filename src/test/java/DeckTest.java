@@ -31,4 +31,14 @@ public class DeckTest {
         assertEquals(51, deck.getDeckSize());
         assertEquals(1, robWilson.getHandSize());
     }
+
+    @Test
+    public void deckCanAddCard() {
+        deck.shuffleDeck();
+        deck.dealACard(robWilson);
+        assertEquals(51, deck.getDeckSize());
+        deck.addCard(robWilson.returnCard());
+        assertEquals(52, deck.getDeckSize());
+
+    }
 }

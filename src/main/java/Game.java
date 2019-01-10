@@ -16,4 +16,38 @@ public class Game {
     public Deck getDeck() {
         return deck;
     }
+
+    public ResultType establishWinner() {
+        ResultType result;
+        int player1Value = playerList.get(0).getCard().getRank().getValue();
+        int player2Value = playerList.get(1).getCard().getRank().getValue();
+        if (player1Value > player2Value) {
+            result = ResultType.PLAYERONEWIN;
+        } else if (player2Value > player1Value) {
+            result = ResultType.PLAYERTWOWIN;
+        } else {
+            result = ResultType.TIE;
+        }
+        return result;
+    }
+
+
+    public ResultType playRound() {
+        dealToPlayers();
+        ResultType winType = establishWinner();
+        return winType;
+    }
+
+    public void dealToPlayers() {
+        deck.shuffleDeck();
+        for (Player player : playerList) {
+            deck.dealACard(player);
+        }
+    }
+
+    public void recoverCardsDealt() {
+        for (Player player : playerList) {
+            deck.addCard(player.returnCard());
+        }
+    }
 }

@@ -34,5 +34,22 @@ public class GameTest {
         assertEquals(52, game.getDeck().getDeckSize());
     }
 
+    @Test
+    public void canPlayARound() {
+        game.playRound();
+    }
 
+    @Test
+    public void canDealToPlayers() {
+        game.dealToPlayers();
+        assertEquals(50, game.getDeck().getDeckSize());
+    }
+
+    @Test
+    public void canRecoverCardsFromPlayers() {
+        game.dealToPlayers();
+        assertEquals(50, game.getDeck().getDeckSize());
+        game.recoverCardsDealt();
+        assertEquals(52, game.getDeck().getDeckSize());
+    }
 }

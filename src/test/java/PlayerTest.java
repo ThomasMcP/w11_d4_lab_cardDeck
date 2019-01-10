@@ -30,4 +30,12 @@ public class PlayerTest {
         assertEquals(1, player.getHandSize());
         assertEquals(card, player.getCard());
     }
+
+    @Test
+    public void playerCanLoseCard() {
+        player.addCard(card);
+        assertEquals(1, player.getHandSize());
+        player.returnCard();
+        assertEquals(0, player.getHandSize());
+    }
 }

@@ -33,4 +33,8 @@ public class Deck {
         Card dealtCard = this.cards.remove(0);
         player.addCard(dealtCard);
     }
+
+    public void addCard(Card returnedCard) {
+        this.cards.add(returnedCard);
+    }
 }
